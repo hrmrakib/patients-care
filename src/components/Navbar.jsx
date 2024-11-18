@@ -8,59 +8,95 @@ import seniorDoctor from "../assets/senior-woman-doctor.png";
 import setting from "../assets/settings.svg";
 import moreVert from "../assets/more_vert.svg";
 
+// Menu items data
+const menuItems = [
+  { href: "/overview", icon: home, label: "Overview", isHighlighted: false },
+  { href: "/patients", icon: group, label: "Patients", isHighlighted: true },
+  {
+    href: "/schedule",
+    icon: calendar,
+    label: "Schedule",
+    isHighlighted: false,
+  },
+  { href: "/message", icon: chat, label: "Message", isHighlighted: false },
+  {
+    href: "/transactions",
+    icon: credit,
+    label: "Transactions",
+    isHighlighted: false,
+  },
+];
+
+// User data
+const user = {
+  name: "Dr. Jose Simmons",
+  title: "General Practitioner",
+  avatar: seniorDoctor,
+};
+
+// Reusable Menu Item Component
+const MenuItem = ({ href, icon, label, isHighlighted }) => (
+  <a
+    href={href}
+    className={`flex items-center gap-2 ${
+      isHighlighted
+        ? "bg-[#01F0D0] px-4 py-3 rounded-[41px]"
+        : "hover:bg-gray-100 px-2 py-1 rounded"
+    }`}
+  >
+    <img className='w-4 h-[17px]' src={icon} alt={`${label} icon`} />
+    <h3
+      className={`font-bold text-[#072635] ${
+        isHighlighted ? "" : "hover:text-gray-700"
+      }`}
+    >
+      {label}
+    </h3>
+  </a>
+);
+
 const Navbar = () => {
   return (
     <nav className='bg-white lg:sticky top-3 z-50 flex justify-between items-center px-6 py-2 rounded-[70px]'>
-      {/* logo */}
-      <a href='/'>
-        <img className='w-[120px] lg:w-[210px]' src={logo} alt='Tech Care' />
+      {/* Logo */}
+      <a href='/' className='navbar-logo'>
+        <img
+          className='w-[120px] lg:w-[210px]'
+          src={logo}
+          alt='Tech Care logo'
+        />
       </a>
 
-      {/* menu item */}
-      <div className='hidden lg:flex items-center gap-8 *:text-[072635]'>
-        <a href='/overview' className='flex items-center gap-2'>
-          <img className='w-4 h-[17px]' src={home} alt='home' />
-          <h3 className='font-bold text-[#072635]'>Overview</h3>
-        </a>
-        <a
-          href='/patients'
-          className='bg-[#01F0D0] px-4 py-3 rounded-[41px] flex items-center gap-2'
-        >
-          <img className='w-6 h-[17px]' src={group} alt='group' />
-          <h3 className='font-bold text-[#072635]'>Patients</h3>
-        </a>
-        <a href='/schedule' className='flex items-center gap-2'>
-          <img className='w-[15px] h-[17px]' src={calendar} alt='calendar' />
-          <h3 className='font-bold text-[#072635]'>Schedule</h3>
-        </a>
-        <a href='/message' className='flex items-center gap-2'>
-          <img className='' src={chat} alt='message' />
-          <h3 className='font-bold text-[#072635]'>Message</h3>
-        </a>
-        <a href='/transactions' className='flex items-center gap-2'>
-          <img className='' src={credit} alt='credit' />
-          <h3 className='font-bold text-[#072635]'>Transactions</h3>
-        </a>
+      {/* Menu Items */}
+      <div className='hidden lg:flex items-center gap-8'>
+        {menuItems.map((item, index) => (
+          <MenuItem key={index} {...item} />
+        ))}
       </div>
 
-      {/* user information */}
+      {/* User Information */}
       <div className='flex items-center'>
+        {/* User Profile */}
         <div className='hidden lg:flex gap-3 border-r-2 pr-3 cursor-pointer'>
           <img
             className='w-11 h-11 rounded-full'
-            src={seniorDoctor}
-            alt='women doctor'
+            src={user.avatar}
+            alt={`${user.name} avatar`}
           />
-
           <div>
-            <h2 className='font-bold text-[#072635]'>Dr. Jose Simmons</h2>
-            <p className='text-[#707070]'>General Practitioner</p>
+            <h2 className='font-bold text-[#072635]'>{user.name}</h2>
+            <p className='text-[#707070]'>{user.title}</p>
           </div>
         </div>
 
+        {/* Action Icons */}
         <div className='flex items-center gap-4 pl-3'>
-          <img className='cursor-pointer' src={setting} alt='setting' />
-          <img className='cursor-pointer' src={moreVert} alt='more' />
+          <img className='cursor-pointer' src={setting} alt='Settings icon' />
+          <img
+            className='cursor-pointer'
+            src={moreVert}
+            alt='More options icon'
+          />
         </div>
       </div>
     </nav>
