@@ -1,19 +1,43 @@
-# I want to inform you:
+## [Live Preview](https://patients-care.vercel.app/)
 
-1. I send you complete (zip) folder of the projects with node_modules folder. So, no need to extra set-up.
-2. Image quality is not good of the API so profile image of the project is not good.
 
-## 🤸 Quick Start
+## <a name="quick-start">🤸 Quick Start</a>
 
 Follow these steps to set up the project locally on your machine.
 
-1. Extract the foler: rakibul_coalition_technologies
-2. cd rakibul_coalition_technologies
-3. npm run dev (Running the Project)
-4. Open http://localhost:5173 in your browser to view the project.
+**Prerequisites**
 
-## Have any Query:
+Make sure you have the following installed on your machine:
 
-Email: hrmrakibs@gmail.com
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-Linkedin: https://www.linkedin.com/in/hrmrakib/
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/hrmrakib/patients-care.git
+cd patients-care
+```
+
+**Installation**
+
+Install the project dependencies using npm:
+
+```bash
+npm install
+```
+
+**Running the Project**
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
+
+
+
+Have any Query: <br />
+- hrmrakibs@gmail.com
+- https://www.linkedin.com/in/hrmrakib/
